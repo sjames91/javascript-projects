@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #1e1f24;
+  color: #e6e6e6;
+  font: 14px system-ui, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: #15161a;
+  border-bottom: 1px solid #33353d;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+h2 {
+  margin: 16px 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #9a9ca6;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+.tools,
+.layers {
+  width: 190px;
+  padding: 0 12px 12px;
+  background: #191a1f;
+  overflow-y: auto;
+}
+
+.tools label,
+.layers label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.canvas-area {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  padding: 16px;
+  background-color: #2a2c33;
+}
+
+/* margin: auto centers it while small, and still lets you scroll to every edge when zoomed in */
+canvas {
+  margin: auto;
+  flex-shrink: 0;
+  background: repeating-conic-gradient(#3a3c44 0% 25%, #33353c 0% 50%) 0 0 / 16px 16px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+button,
+select,
+input[type="number"] {
+  background: #2c2e36;
+  color: #e6e6e6;
+  border: 1px solid #44464f;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font: inherit;
+}
+
+button:hover {
+  background: #383a44;
+}
+
+input[type="number"] {
+  width: 56px;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+input[type="color"] {
+  width: 100%;
+  height: 36px;
+  border: none;
+  background: none;
+}
+
+#palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.swatch {
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #00000066;
+  cursor: pointer;
+}
+
+.tools button {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.square-mode .circle-settings {
+  display: none;
+}
+
+.canvas-area.panning,
+.canvas-area.panning canvas {
+  cursor: grabbing;
+}
+
+canvas.zoom-tool {
+  cursor: zoom-in;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.tools .tool-grid button {
+  margin: 0;
+}
+
+.tools .row {
+  display: flex;
+  gap: 4px;
+}
+
+.tools .row button {
+  flex: 1;
+}
+
+button.active {
+  background: #3b4a6b;
+  border-color: #5a6f9e;
+}
+
+.hint {
+  color: #9a9ca6;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#layer-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+#layer-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  background: #24262d;
+  cursor: pointer;
+}
+
+#layer-list li.selected {
+  background: #3b4a6b;
+}
+
+#layer-list .name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#layer-list button {
+  padding: 0 6px;
+}
